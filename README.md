@@ -57,11 +57,12 @@ ElevenLabs → **Developers → API Keys → Create key**. Turn on **Restrict ke
 
 **2. Put the code on GitHub**
 
-In VS Code: **Source Control → Publish to GitHub**, and choose a **private** repository. Or create an empty repo on github.com and push:
+The code is in `github.com/21Sameer/voice-agent`, branch `master`. To publish your own changes:
 
 ```bash
-git remote add origin https://github.com/<you>/<repo>.git
-git push -u origin main
+git add -A
+git commit -m "Describe the change"
+git push
 ```
 
 **3. Import into Vercel**
@@ -77,7 +78,7 @@ If you add the key after the first deploy, open **Deployments** and **Redeploy**
 
 Open the `*.vercel.app` URL and make a short call. If the page shows "ELEVENLABS_API_KEY is not set", check step 3. If it shows "ElevenLabs rejected the API key", check the key and its Agents permission.
 
-After this, every `git push` to `main` redeploys automatically.
+After this, every `git push` to `master` redeploys automatically.
 
 ## After deploying: protect your credits
 

@@ -35,7 +35,7 @@ window.VOICE_DEMO_CONFIG = {
       description: "Front desk: answers questions, books meeting rooms and takes messages.",
       agentName: { en: "Sana", ur: "ثنا", pa: "ثنا", ps: "ثنا" },
       accent: "#0891b2",
-      agentId: "agent_4901m7yk5053fytbxeghpz9j4p9z",
+      agentId: "agent_3801m7yrjctqf6p92swrf8rm50dq",
     },
     {
       id: "doctor",
@@ -44,7 +44,7 @@ window.VOICE_DEMO_CONFIG = {
       description: "Books patient appointments and points callers to the right specialist. Never diagnoses.",
       agentName: { en: "Ayesha", ur: "عائشہ", pa: "عائشہ", ps: "عایشه" },
       accent: "#059669",
-      agentId: "agent_7001m7yk9cwtezjb5mvc90svv3j8",
+      agentId: "agent_0701m7yrjestfja89s7f60yy4b9d",
     },
     {
       id: "lawyer",
@@ -53,7 +53,7 @@ window.VOICE_DEMO_CONFIG = {
       description: "Client intake: understands the legal matter and books a consultation. Never gives legal advice.",
       agentName: { en: "Ahmed", ur: "احمد", pa: "احمد", ps: "احمد" },
       accent: "#7c3aed",
-      agentId: "agent_3901m7yk9mkjf4xr30h12av06y5t",
+      agentId: "agent_1001m7yrjgjsfd7at8dkv77ztcb6",
     },
     {
       id: "sales",
@@ -62,7 +62,7 @@ window.VOICE_DEMO_CONFIG = {
       description: "Qualifies leads, handles objections and books a demo meeting.",
       agentName: { en: "Bilal", ur: "بلال", pa: "بلال", ps: "بلال" },
       accent: "#ea580c",
-      agentId: "agent_8801m7yk9pn6e79taqrj9qv03agk",
+      agentId: "agent_7201m7yrjjdcek5b5jw16t5d3t91",
     },
   ],
 };

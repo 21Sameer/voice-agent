@@ -10,10 +10,10 @@ It is a static site with one small serverless function and no build step. Voice,
 
 | Version | ElevenLabs agent | Agent name |
 |---|---|---|
-| Receptionist (Zenith Business Centre) | `agent_4901m7yk5053fytbxeghpz9j4p9z` | Sana (voice: Eman) |
-| Doctor's Clinic (City Care Clinic) | `agent_7001m7yk9cwtezjb5mvc90svv3j8` | Ayesha (voice: Huda) |
-| Law Firm (Qanoon Law Associates) | `agent_3901m7yk9mkjf4xr30h12av06y5t` | Ahmed (voice: Asad Raza) |
-| Business Sales (Nexa Solutions) | `agent_8801m7yk9pn6e79taqrj9qv03agk` | Bilal (voice: Salman Ahmad) |
+| Receptionist (Zenith Business Centre) | `agent_3801m7yrjctqf6p92swrf8rm50dq` | Sana (voice: Eman) |
+| Doctor's Clinic (City Care Clinic) | `agent_0701m7yrjestfja89s7f60yy4b9d` | Ayesha (voice: Huda) |
+| Law Firm (Qanoon Law Associates) | `agent_1001m7yrjgjsfd7at8dkv77ztcb6` | Ahmed (voice: Asad Raza) |
+| Business Sales (Nexa Solutions) | `agent_7201m7yrjjdcek5b5jw16t5d3t91` | Bilal (voice: Salman Ahmad) |
 
 - Each agent has English as its default language and **language presets** for `ur`, `pa` and `ps`, each with a translated greeting.
 - Each persona uses **one voice for all four languages**, so the voice does not change when the language switches.
@@ -87,9 +87,22 @@ After this, every `git push` to `master` redeploys automatically.
 3. Calls are capped at 10 minutes (the default). Change it under the agent's **Advanced** settings if you need to.
 4. The token endpoint itself is public. Other websites can't use it from a browser, but a script could. For a public launch, add rate limiting (for example Vercel Firewall rules) and keep the credit limit on the API key.
 
+## Agents as code
+
+`scripts/setup-agents.mjs` holds the full definition of the four agents: prompts, greetings, voices, language presets, auto-switching and LLM settings. Running it creates them in the ElevenLabs account that owns the API key, or updates them if they already exist (matched by name). It then writes their IDs into `config.js`, `api/conversation-token.js` and this README.
+
+```bash
+# .env.local must contain ELEVENLABS_API_KEY=... (git-ignored)
+node scripts/setup-agents.mjs
+```
+
+- The key needs **ElevenLabs Agents** write access.
+- The four voices must already be in that account's **My Voices** (Voice Library → Add to My Voices): Eman, Huda, Asad Raza, Salman Ahmad. The script stops before creating anything if one is missing.
+- Running the script overwrites changes made to these agents in the ElevenLabs dashboard. Make lasting changes in the script, or stop using the script once you edit in the dashboard.
+
 ## Customising
 
-- **Business details, prices, timings:** edit the agent's system prompt in ElevenLabs. Everything marked "demo data" is a placeholder.
+- **Business details, prices, timings:** edit the prompt in `scripts/setup-agents.mjs` and run it again, or edit the agent in ElevenLabs. Everything marked "demo data" is a placeholder.
 - **Voices:** agent, then **Voice**. That one voice speaks all four languages. Avoid setting a different voice per language preset: the voice would change mid-call whenever the language switches, which confuses callers. Some Voice Library voices are not usable on every plan. If a call log in ElevenLabs shows "Voice … is unavailable. Fell back to default voice", pick another voice.
 - **Add a fifth version:** duplicate an agent in ElevenLabs and change its prompt, presets and voice. Add an entry to `personas` in `config.js` with the new `agentId`. Also add the ID to `DEFAULT_AGENT_IDS` in `api/conversation-token.js`, or the token function will refuse it.
 

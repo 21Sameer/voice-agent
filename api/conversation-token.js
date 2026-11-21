@@ -10,10 +10,10 @@
 // (or set ALLOWED_AGENT_IDS in Vercel as a comma-separated list).
 
 const DEFAULT_AGENT_IDS = [
-  "agent_4901m7yk5053fytbxeghpz9j4p9z", // Receptionist
-  "agent_7001m7yk9cwtezjb5mvc90svv3j8", // Doctor's Clinic
-  "agent_3901m7yk9mkjf4xr30h12av06y5t", // Law Firm
-  "agent_8801m7yk9pn6e79taqrj9qv03agk", // Business Sales
+  "agent_3801m7yrjctqf6p92swrf8rm50dq", // Receptionist
+  "agent_0701m7yrjestfja89s7f60yy4b9d", // Doctor's Clinic
+  "agent_1001m7yrjgjsfd7at8dkv77ztcb6", // Law Firm
+  "agent_7201m7yrjjdcek5b5jw16t5d3t91", // Business Sales
 ];
 
 const API_BASE = "https://api.elevenlabs.io/v1/convai/conversation";

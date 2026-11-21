@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pakistani Multilingual Voice Agent</title>
+    <meta name="description" content="Talk to an AI voice agent in English, Urdu, Punjabi or Pashto: receptionist, doctor's clinic, law firm and business sales." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Home: choose an agent -->
+      <section id="home-view">
+        <header class="header">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <h1 id="app-title">Pakistani Multilingual Voice Agent</h1>
+          </div>
+          <p class="tagline">Choose an agent and start talking.</p>
+          <p class="langs-note">
+            Speaks
+            <span class="chip" lang="en">English</span>
+            <span class="chip" lang="ur" dir="rtl">اردو</span>
+            <span class="chip" lang="pa" dir="rtl">پنجابی</span>
+            <span class="chip" lang="ps" dir="rtl">پښتو</span>
+            and switches automatically.
+          </p>
+        </header>
+
+        <div id="personas" class="persona-grid"></div>
+      </section>
+
+      <!-- One agent: the call screen -->
+      <section id="agent-view" hidden>
+        <button id="back-btn" class="back-btn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          All agents
+        </button>
+
+        <div class="call-card">
+          <div class="orb-wrap">
+            <div id="orb" class="orb idle" aria-hidden="true"></div>
+          </div>
+          <h2 id="agent-name" class="agent-name"></h2>
+          <div id="agent-org" class="agent-org"></div>
+
+          <div class="status-line">
+            <span id="status-dot" class="status-dot"></span>
+            <span id="status-text" role="status" aria-live="polite">Ready</span>
+            <span id="timer" class="timer" hidden>00:00</span>
+          </div>
+          <div id="lang-pill" class="lang-pill" aria-live="polite"></div>
+
+          <div class="controls">
+            <button id="call-btn" class="call-btn" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg>
+              <span id="call-btn-label">Start call</span>
+            </button>
+            <button id="mute-btn" class="ghost-btn" type="button" hidden aria-pressed="false">Mute</button>
+          </div>
+
+          <div id="error" class="error" role="alert" hidden></div>
+        </div>
+
+        <div class="transcript-card">
+          <div class="transcript-head">
+            <h3>Live transcript</h3>
+            <button id="clear-btn" class="link-btn" type="button">Clear</button>
+          </div>
+          <div id="transcript" class="transcript" aria-live="polite">
+            <p class="empty">The conversation will appear here.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Demo data only. Business names, timings and prices are placeholders. Voice by ElevenLabs.
+      </footer>
+    </div>
+
+    <script src="vendor/elevenlabs-client-1.37.1.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

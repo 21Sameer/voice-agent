@@ -1,0 +1,12 @@
+# Secrets: the ElevenLabs API key lives only in Vercel's Environment Variables
+.env
+.env.*
+!.env.example
+
+# Vercel / Node
+.vercel
+node_modules
+
+# OS
+.DS_Store
+Thumbs.db
